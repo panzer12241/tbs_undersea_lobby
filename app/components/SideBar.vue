@@ -1,7 +1,7 @@
 <template>
-  <div class="h-full flex flex-col items-center justify-center gap-2 py-2 w-[110px] relative z-20 bg-gradient-to-b from-[#00ffff]/10 to-[#0099ff]/10 border border-white/20 rounded-[50px] backdrop-blur-sm">
+  <div class="h-[calc(100%_-_40px)] my-auto flex flex-col items-center justify-center gap-2 py-6 w-[110px] relative z-20 bg-gradient-to-b from-[#00ffff]/10 to-[#0099ff]/10 border border-white/20 rounded-[50px] backdrop-blur-sm">
     <!-- Up Button -->
-    <button class="hover:-translate-y-1 transition-transform mb-2">
+    <button class="absolute -top-5 left-1/2 -translate-x-1/2 hover:-translate-y-1 transition-transform z-30">
       <img src="/images/sidebar/up-btn.png" alt="Up" class="w-10 h-10 drop-shadow-md" />
     </button>
 
@@ -71,7 +71,7 @@
     </div>
 
     <!-- Down Button -->
-    <button class="hover:translate-y-1 transition-transform mt-2">
+    <button class="absolute -bottom-5 left-1/2 -translate-x-1/2 hover:translate-y-1 transition-transform z-30">
       <img src="/images/sidebar/down-btn.png" alt="Down" class="w-10 h-10 drop-shadow-md" />
     </button>
   </div>

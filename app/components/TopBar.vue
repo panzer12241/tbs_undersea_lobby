@@ -1,10 +1,10 @@
 <template>
   <div class="h-32 w-full relative z-10 flex justify-center font-sans">
     <!-- Background Image -->
-    <img src="/images/header.png" alt="Header Background" class="absolute top-0 left-0 w-full h-full object-fill" />
+    <img src="/images/header.png" alt="Header Background" class="absolute top-0 left-0 w-full h-full object-fill z-10" />
 
     <!-- Content Container -->
-    <div class="grid grid-cols-[1fr_0.8fr_1fr] w-full h-full max-w-[1400px] mx-auto px-4">
+    <div class="grid grid-cols-[1fr_0.8fr_1fr] w-full h-full max-w-[1400px] mx-auto px-4 relative z-20">
       
       <!-- Left Section: Balances -->
       <div class="grid grid-cols-3 gap-3 h-full pb-4 w-full items-center">
@@ -91,5 +91,31 @@
 
     </div>
     
+    <!-- Marquee Bar -->
+    <div class="absolute top-[calc(100%-18px)] left-0 w-full h-[40px] bg-[linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.1)_50%,transparent_100%)] z-0 overflow-hidden flex items-center border-t border-[#00ffff]/30">
+      <div class="whitespace-nowrap animate-marquee text-white text-xs font-bold drop-shadow-[0_0_2px_rgba(0,0,0,0.8)] flex items-center gap-4">
+        <span>📕 ลงทะเบียนวันนี้! เงินฟรี สล็อตออนไลน์ฟรีเครดิต ไม่ต้องฝาก</span>
+        <span>📕 ลงทะเบียนวันนี้! เงินฟรี สล็อตออนไลน์ฟรีเครดิต ไม่ต้องฝาก</span>
+        <span>📕 ลงทะเบียนวันนี้! เงินฟรี สล็อตออนไลน์ฟรีเครดิต ไม่ต้องฝาก</span>
+        <span>📕 ลงทะเบียนวันนี้! เงินฟรี สล็อตออนไลน์ฟรีเครดิต ไม่ต้องฝาก</span>
+      </div>
+    </div>
   </div>
 </template>
+
+<style scoped>
+.animate-marquee {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+</style>

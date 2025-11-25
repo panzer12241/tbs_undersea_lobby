@@ -7,7 +7,7 @@
     <div class="flex-1 flex overflow-hidden px-2.5 pt-2.5 pb-24 relative z-20">
       <SideBar />
       <div class="flex-1 overflow-y-auto px-5">
-        <!-- <NuxtPage /> -->
+        <NuxtPage />
       </div>
       <div class="w-0"></div> <!-- Spacer if needed -->
     </div>

@@ -4,46 +4,55 @@
     <img src="/images/header.png" alt="Header Background" class="absolute top-0 left-0 w-full h-full object-fill" />
 
     <!-- Content Container -->
-        <!-- Content Container -->
-    <div class="relative w-full h-full max-w-[1400px] mx-auto">
+    <div class="grid grid-cols-[1fr_0.8fr_1fr] w-full h-full max-w-[1400px] mx-auto px-4">
       
       <!-- Left Section: Balances -->
-      <div class="absolute left-4 top-[40%] -translate-y-1/2 flex items-center gap-2">
+      <div class="grid grid-cols-3 gap-3 h-full pb-4 w-full items-center">
         <!-- Coin Balance -->
-        <div class="relative flex items-center justify-between px-1 py-1 min-w-[130px] h-[36px]">
-          <img src="/images/bg-balance.svg" class="absolute inset-0 w-full h-full object-fill" />
+        <div class="relative flex items-center px-1 py-1 w-full h-[36px]">
+          <div class="absolute inset-0 w-full h-full rounded-full bg-[#01bcb6]/20 border border-white/30 shadow-[0_0_6px_#ffffff] mix-blend-overlay">
+            <div class="absolute inset-0 rounded-full shadow-[inset_0_4px_8px_rgba(255,255,255,0.3)]"></div>
+          </div>
           <img src="/images/coin.png" alt="Coin" class="w-9 h-9 z-10 -ml-1 drop-shadow-lg" />
-          <span class="relative z-10 text-white font-bold text-sm mx-1 drop-shadow-md">฿8,900.00</span>
-          <button class="relative z-10 hover:scale-110 transition-transform">
-            <img src="/images/add-bt.png" alt="Add" class="w-5 h-5 mr-1" />
+          <span class="relative z-10 text-white font-bold text-sm ml-2 drop-shadow-md">฿8,900.00</span>
+          <button class="relative z-10 hover:scale-110 transition-transform ml-auto pr-1">
+            <img src="/images/add-bt.png" alt="Add" class="w-5 h-5" />
           </button>
         </div>
 
         <!-- Diamond Balance -->
-        <div class="relative flex items-center px-1 py-1 min-w-[90px] h-[36px]">
-           <img src="/images/bg-balance.svg" class="absolute inset-0 w-full h-full object-fill" />
+        <div class="relative flex items-center px-1 py-1 w-full h-[36px]">
+           <div class="absolute inset-0 w-full h-full rounded-full bg-[#01bcb6]/20 border border-white/30 shadow-[0_0_6px_#ffffff] mix-blend-overlay">
+            <div class="absolute inset-0 rounded-full shadow-[inset_0_4px_8px_rgba(255,255,255,0.3)]"></div>
+          </div>
           <img src="/images/dimon.png" alt="Diamond" class="w-8 h-8 z-10 -ml-1 drop-shadow-lg" />
           <span class="relative z-10 text-white font-bold text-sm ml-2 drop-shadow-md">99.00</span>
         </div>
 
         <!-- Point Balance -->
-        <div class="relative flex items-center px-1 py-1 min-w-[90px] h-[36px]">
-           <img src="/images/bg-balance.svg" class="absolute inset-0 w-full h-full object-fill" />
+        <div class="relative flex items-center px-1 py-1 w-full h-[36px]">
+           <div class="absolute inset-0 w-full h-full rounded-full bg-[#01bcb6]/20 border border-white/30 shadow-[0_0_6px_#ffffff] mix-blend-overlay">
+            <div class="absolute inset-0 rounded-full shadow-[inset_0_4px_8px_rgba(255,255,255,0.3)]"></div>
+          </div>
           <img src="/images/point.png" alt="Point" class="w-8 h-8 z-10 -ml-1 drop-shadow-lg" />
           <span class="relative z-10 text-white font-bold text-sm ml-2 drop-shadow-md">99.00</span>
         </div>
       </div>
 
       <!-- Center Logo -->
-      <div class="absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 hover:scale-105 transition-transform duration-300">
-        <img src="/images/logo.png" alt="JOKER79" class="h-[55px] object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.5)]" />
+      <div class="flex items-center justify-center h-full pb-4">
+        <div class="hover:scale-105 transition-transform duration-300">
+          <img src="/images/logo.png" alt="JOKER79" class="h-[55px] object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.5)]" />
+        </div>
       </div>
 
       <!-- Right Section: Profile & Buttons -->
-      <div class="absolute right-4 top-[40%] -translate-y-1/2 flex items-center gap-4">
+      <div class="flex items-center justify-end gap-2 h-full pb-4">
         <!-- Profile -->
         <div class="relative flex items-center pl-1 pr-4 py-1 h-[42px] min-w-[160px]">
-           <div class="absolute inset-0 bg-gradient-to-r from-[#003b4d] to-[#002a36] rounded-full border border-[#00ffff]/20 shadow-[0_0_10px_#000000/50]"></div>
+           <div class="absolute inset-0 w-full h-full rounded-full bg-[#01bcb6]/20 border border-white/30 shadow-[0_0_6px_#ffffff] mix-blend-overlay">
+            <div class="absolute inset-0 rounded-full shadow-[inset_0_4px_8px_rgba(255,255,255,0.3)]"></div>
+          </div>
           <div class="relative z-10 mr-2">
             <img src="/images/profile.png" alt="Profile" class="w-10 h-10 rounded-full border border-[#00ffff] shadow-[0_0_5px_#00ffff]" />
           </div>

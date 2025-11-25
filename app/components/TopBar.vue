@@ -15,8 +15,8 @@
           </div>
           <img src="/images/coin.png" alt="Coin" class="w-9 h-9 z-10 -ml-1 drop-shadow-lg" />
           <span class="relative z-10 text-white font-bold text-sm ml-2 drop-shadow-md">฿8,900.00</span>
-          <button class="relative z-10 hover:scale-110 transition-transform ml-auto pr-1">
-            <img src="/images/add-bt.png" alt="Add" class="w-5 h-5" />
+          <button class="relative z-10 hover:scale-110 transition-transform ml-auto -mr-1">
+            <img src="/images/add-bt.png" alt="Add" class="w-[40px] h-[40px]" />
           </button>
         </div>
 
@@ -37,6 +37,7 @@
           <img src="/images/point.png" alt="Point" class="w-8 h-8 z-10 -ml-1 drop-shadow-lg" />
           <span class="relative z-10 text-white font-bold text-sm ml-2 drop-shadow-md">99.00</span>
         </div>
+
       </div>
 
       <!-- Center Logo -->
@@ -47,39 +48,41 @@
       </div>
 
       <!-- Right Section: Profile & Buttons -->
-      <div class="flex items-center justify-end gap-2 h-full pb-4">
-        <!-- Profile -->
-        <div class="relative flex items-center pl-1 pr-4 py-1 h-[42px] min-w-[160px]">
+      <div class="grid grid-cols-[2fr_1fr] gap-4 h-full pb-4 w-full items-center">
+        <!-- Group 1: Profile & Power -->
+        <div class="relative flex items-center px-1 py-1 h-[46px] w-full">
            <div class="absolute inset-0 w-full h-full rounded-full bg-[#01bcb6]/20 border border-white/30 shadow-[0_0_6px_#ffffff] mix-blend-overlay">
             <div class="absolute inset-0 rounded-full shadow-[inset_0_4px_8px_rgba(255,255,255,0.3)]"></div>
           </div>
-          <div class="relative z-10 mr-2">
-            <img src="/images/profile.png" alt="Profile" class="w-10 h-10 rounded-full border border-[#00ffff] shadow-[0_0_5px_#00ffff]" />
+          <div class="relative z-10 mr-3">
+            <img src="/images/profile.png" alt="Profile" class="w-11 h-11 rounded-full border border-[#00ffff] shadow-[0_0_5px_#00ffff]" />
           </div>
           <div class="relative z-10 flex flex-col items-start leading-none justify-center">
-            <span class="text-white font-bold text-sm drop-shadow-md">วรชาติ อุดมเดช</span>
-            <span class="text-white/60 text-[9px] mt-[1px]">ID: JK0998998888</span>
+            <span class="text-white font-bold text-base drop-shadow-md">วรชาติ อุดมเดช</span>
+            <span class="text-white/60 text-[10px] mt-[1px]">ID: JK0998998888</span>
           </div>
+          <!-- Power Button -->
+          <button class="relative z-10 hover:scale-105 transition-transform ml-auto -mr-2">
+            <img src="/images/logout-bt.png" alt="Logout" class="w-[52px] h-[52px] drop-shadow-md" />
+          </button>
         </div>
 
-        <!-- Power Button -->
-        <button class="hover:scale-105 transition-transform">
-          <img src="/images/logout-bt.png" alt="Logout" class="w-9 h-9 drop-shadow-md" />
-        </button>
-
-        <!-- Search Game -->
-        <div class="flex flex-col items-center justify-center relative group cursor-pointer">
-          <img src="/images/card.png" alt="Search" class="w-10 h-10 z-10 hover:-translate-y-1 transition-transform mb-[-8px]" />
-          <div class="bg-[#005c6e] text-white text-[9px] px-2 py-[1px] rounded-full border border-[#00ffff]/30 shadow-[0_0_5px_#00ffff/50] z-20">
-            ค้นหาเกม
+        <!-- Group 2: Search & Settings -->
+        <div class="flex items-center justify-end gap-2 w-full">
+          <!-- Search Game -->
+          <div class="flex flex-col items-center justify-center relative group cursor-pointer">
+            <img src="/images/card.png" alt="Search" class="w-11 h-11 z-10 hover:-translate-y-1 transition-transform mb-[-8px]" />
+            <div class="bg-[#005c6e] text-white text-[10px] px-2 py-[1px] rounded-full border border-[#00ffff]/30 shadow-[0_0_5px_#00ffff/50] z-20">
+              ค้นหาเกม
+            </div>
           </div>
-        </div>
 
-        <!-- Settings -->
-        <div class="flex flex-col items-center justify-center relative group cursor-pointer">
-          <img src="/images/setting.png" alt="Settings" class="w-10 h-10 z-10 hover:-translate-y-1 transition-transform mb-[-8px]" />
-          <div class="bg-[#006e00] text-white text-[9px] px-3 py-[1px] rounded-full border border-[#00ff00]/30 shadow-[0_0_5px_#00ff00/50] z-20">
-            ตั้งค่า
+          <!-- Settings -->
+          <div class="flex flex-col items-center justify-center relative group cursor-pointer">
+            <img src="/images/setting.png" alt="Settings" class="w-11 h-11 z-10 hover:-translate-y-1 transition-transform mb-[-8px]" />
+            <div class="bg-[#006e00] text-white text-[10px] px-3 py-[1px] rounded-full border border-[#00ff00]/30 shadow-[0_0_5px_#00ff00/50] z-20">
+              ตั้งค่า
+            </div>
           </div>
         </div>
       </div>

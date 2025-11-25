@@ -3,8 +3,36 @@
 @tailwind utilities;
 
 /* Global Styles */
+@font-face {
+  font-family: 'FC Iconic';
+  src: url('/Fonts/FC Iconic/FC Iconic Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FC Iconic';
+  src: url('/Fonts/FC Iconic/FC Iconic Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FC Iconic';
+  src: url('/Fonts/FC Iconic/FC Iconic Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'FC Iconic';
+  src: url('/Fonts/FC Iconic/FC Iconic Bold Italic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
 :root {
-  --font-main: 'Arial', sans-serif;
+  --font-main: 'FC Iconic', sans-serif;
 }
 
 body {

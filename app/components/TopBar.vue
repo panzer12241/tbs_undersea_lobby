@@ -71,6 +71,7 @@
         <div class="flex items-center justify-end gap-2 w-full">
           <!-- Search Game -->
           <div class="flex flex-col items-center justify-center relative group cursor-pointer">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-[#01bcb6]/40 border border-white/30 shadow-[0_0_10px_#00ffff] z-0"></div>
             <img src="/images/card.png" alt="Search" class="w-11 h-11 z-10 hover:-translate-y-1 transition-transform mb-[-8px]" />
             <div class="bg-[#005c6e] text-white text-[10px] px-2 py-[1px] rounded-full border border-[#00ffff]/30 shadow-[0_0_5px_#00ffff/50] z-20">
               ค้นหาเกม
@@ -79,6 +80,7 @@
 
           <!-- Settings -->
           <div class="flex flex-col items-center justify-center relative group cursor-pointer">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-[#01bcb6]/40 border border-white/30 shadow-[0_0_10px_#00ffff] z-0"></div>
             <img src="/images/setting.png" alt="Settings" class="w-11 h-11 z-10 hover:-translate-y-1 transition-transform mb-[-8px]" />
             <div class="bg-[#006e00] text-white text-[10px] px-3 py-[1px] rounded-full border border-[#00ff00]/30 shadow-[0_0_5px_#00ff00/50] z-20">
               ตั้งค่า

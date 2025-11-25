@@ -3,13 +3,13 @@
     <div class="absolute top-0 left-0 w-full h-full -z-10 bg-cover bg-center" style="background-image: url('/images/bg.png');"></div>
     <TopBar />
     <div class="flex-1 flex overflow-hidden p-2.5">
-      <SideBar />
+      <!-- <SideBar /> -->
       <div class="flex-1 overflow-y-auto px-5">
-        <NuxtPage />
+        <!-- <NuxtPage /> -->
       </div>
       <div class="w-0"></div> <!-- Spacer if needed -->
     </div>
-    <BottomBar />
+    <!-- <BottomBar /> -->
   </div>
 </template>
 

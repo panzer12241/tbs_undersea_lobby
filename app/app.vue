@@ -9,7 +9,7 @@
       </div>
       <div class="w-0"></div> <!-- Spacer if needed -->
     </div>
-    <!-- <BottomBar /> -->
+    <BottomBar />
   </div>
 </template>
 

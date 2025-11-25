@@ -5,7 +5,7 @@
     </div>
     <TopBar />
     <div class="flex-1 flex overflow-hidden p-2.5">
-      <!-- <SideBar /> -->
+      <SideBar />
       <div class="flex-1 overflow-y-auto px-5">
         <!-- <NuxtPage /> -->
       </div>

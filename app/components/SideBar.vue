@@ -1,38 +1,82 @@
 <template>
-  <div class="w-[90px] flex flex-col gap-4 py-5 bg-[rgba(0,20,40,0.4)] border-r border-white/10 rounded-r-2xl items-center">
-    <div class="flex flex-col items-center justify-center w-[70px] h-[70px] rounded-full bg-white/10 cursor-pointer transition-all border-2 border-transparent hover:bg-white/20 active-nav">
-      <div class="text-2xl mb-0.5">🔥</div>
-      <span class="text-[10px] text-white font-bold drop-shadow-[1px_1px_2px_black]">ล็อบบี้</span>
+  <div class="h-full flex flex-col items-center justify-center gap-2 py-2 w-[110px] relative z-20 bg-gradient-to-b from-[#00ffff]/10 to-[#0099ff]/10 border border-white/20 rounded-[50px] backdrop-blur-sm">
+    <!-- Up Button -->
+    <button class="hover:-translate-y-1 transition-transform mb-2">
+      <img src="/images/sidebar/up-btn.png" alt="Up" class="w-10 h-10 drop-shadow-md" />
+    </button>
+
+    <!-- Menu Items -->
+    <div class="flex-1 flex flex-col items-center justify-start gap-5 overflow-y-auto no-scrollbar py-2">
+      
+      <!-- Item: Lobby -->
+      <div class="flex flex-col items-center cursor-pointer group relative">
+        <div class="relative z-10 transition-transform group-hover:scale-110 duration-300">
+             <img src="/images/sidebar/lobby.png" alt="Lobby" class="w-[85px] h-[85px] object-contain drop-shadow-lg" />
+        </div>
+        <div class="bg-gradient-to-b from-[#ccffff] to-[#99ffff] text-[#005c6e] text-sm font-bold px-4 py-[2px] rounded-full -mt-4 relative z-20 shadow-[0_2px_4px_rgba(0,0,0,0.2)] border border-white/60 whitespace-nowrap">
+          ล็อบบี้
+        </div>
+      </div>
+
+      <!-- Item: Slot (Camp Game) -->
+      <div class="flex flex-col items-center cursor-pointer group relative">
+        <div class="relative z-10 transition-transform group-hover:scale-110 duration-300">
+             <img src="/images/sidebar/slot.png" alt="Slot" class="w-[85px] h-[85px] object-contain drop-shadow-lg" />
+        </div>
+        <div class="bg-gradient-to-b from-[#ccffff] to-[#99ffff] text-[#005c6e] text-sm font-bold px-4 py-[2px] rounded-full -mt-4 relative z-20 shadow-[0_2px_4px_rgba(0,0,0,0.2)] border border-white/60 whitespace-nowrap">
+          ค่ายเกม
+        </div>
+      </div>
+
+      <!-- Item: Casino -->
+      <div class="flex flex-col items-center cursor-pointer group relative">
+        <div class="relative z-10 transition-transform group-hover:scale-110 duration-300">
+             <img src="/images/sidebar/casino.png" alt="Casino" class="w-[85px] h-[85px] object-contain drop-shadow-lg" />
+        </div>
+        <div class="bg-gradient-to-b from-[#ccffff] to-[#99ffff] text-[#005c6e] text-sm font-bold px-4 py-[2px] rounded-full -mt-4 relative z-20 shadow-[0_2px_4px_rgba(0,0,0,0.2)] border border-white/60 whitespace-nowrap">
+          คาสิโน
+        </div>
+      </div>
+
+      <!-- Item: Fish -->
+      <div class="flex flex-col items-center cursor-pointer group relative">
+        <div class="relative z-10 transition-transform group-hover:scale-110 duration-300">
+             <img src="/images/sidebar/fish.png" alt="Fish" class="w-[85px] h-[85px] object-contain drop-shadow-lg" />
+        </div>
+        <div class="bg-gradient-to-b from-[#ccffff] to-[#99ffff] text-[#005c6e] text-sm font-bold px-4 py-[2px] rounded-full -mt-4 relative z-20 shadow-[0_2px_4px_rgba(0,0,0,0.2)] border border-white/60 whitespace-nowrap">
+          ยิงปลา
+        </div>
+      </div>
+
+      <!-- Item: Table -->
+      <div class="flex flex-col items-center cursor-pointer group relative">
+        <div class="relative z-10 transition-transform group-hover:scale-110 duration-300">
+             <img src="/images/sidebar/table.png" alt="Table" class="w-[85px] h-[85px] object-contain drop-shadow-lg" />
+        </div>
+        <div class="bg-gradient-to-b from-[#ccffff] to-[#99ffff] text-[#005c6e] text-sm font-bold px-4 py-[2px] rounded-full -mt-4 relative z-20 shadow-[0_2px_4px_rgba(0,0,0,0.2)] border border-white/60 whitespace-nowrap">
+          เกมโต๊ะ
+        </div>
+      </div>
+
+      <!-- Item: Arcade -->
+      <div class="flex flex-col items-center cursor-pointer group relative">
+        <div class="relative z-10 transition-transform group-hover:scale-110 duration-300">
+             <img src="/images/sidebar/acade.png" alt="Arcade" class="w-[85px] h-[85px] object-contain drop-shadow-lg" />
+        </div>
+        <div class="bg-gradient-to-b from-[#ccffff] to-[#99ffff] text-[#005c6e] text-sm font-bold px-4 py-[2px] rounded-full -mt-4 relative z-20 shadow-[0_2px_4px_rgba(0,0,0,0.2)] border border-white/60 whitespace-nowrap">
+          อาร์เคต
+        </div>
+      </div>
+
     </div>
-    <div class="flex flex-col items-center justify-center w-[70px] h-[70px] rounded-full bg-white/10 cursor-pointer transition-all border-2 border-transparent hover:bg-white/20">
-      <div class="text-2xl mb-0.5">🎮</div>
-      <span class="text-[10px] text-white font-bold drop-shadow-[1px_1px_2px_black]">ค่ายเกม</span>
-    </div>
-    <div class="flex flex-col items-center justify-center w-[70px] h-[70px] rounded-full bg-white/10 cursor-pointer transition-all border-2 border-transparent hover:bg-white/20">
-      <div class="text-2xl mb-0.5">🎰</div>
-      <span class="text-[10px] text-white font-bold drop-shadow-[1px_1px_2px_black]">คาสิโน</span>
-    </div>
-    <div class="flex flex-col items-center justify-center w-[70px] h-[70px] rounded-full bg-white/10 cursor-pointer transition-all border-2 border-transparent hover:bg-white/20">
-      <div class="text-2xl mb-0.5">🐟</div>
-      <span class="text-[10px] text-white font-bold drop-shadow-[1px_1px_2px_black]">ยิงปลา</span>
-    </div>
-    <div class="flex flex-col items-center justify-center w-[70px] h-[70px] rounded-full bg-white/10 cursor-pointer transition-all border-2 border-transparent hover:bg-white/20">
-      <div class="text-2xl mb-0.5">🃏</div>
-      <span class="text-[10px] text-white font-bold drop-shadow-[1px_1px_2px_black]">เกมโต๊ะ</span>
-    </div>
-    <div class="flex flex-col items-center justify-center w-[70px] h-[70px] rounded-full bg-white/10 cursor-pointer transition-all border-2 border-transparent hover:bg-white/20">
-      <div class="text-2xl mb-0.5">🕹️</div>
-      <span class="text-[10px] text-white font-bold drop-shadow-[1px_1px_2px_black]">อาร์เคด</span>
-    </div>
-    <div class="mt-auto text-[#00ffff] cursor-pointer text-xs">▼</div>
+
+    <!-- Down Button -->
+    <button class="hover:translate-y-1 transition-transform mt-2">
+      <img src="/images/sidebar/down-btn.png" alt="Down" class="w-10 h-10 drop-shadow-md" />
+    </button>
   </div>
 </template>
 
 <style scoped>
-.active-nav {
-  background: linear-gradient(135deg, #ff3333, #ff6600);
-  border-color: #ffd700;
-  box-shadow: 0 0 15px #ff3333;
-  transform: scale(1.1);
-}
+/* Scrollbar hiding handled by global utility */
 </style>

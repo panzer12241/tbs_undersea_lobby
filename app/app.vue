@@ -1,7 +1,7 @@
 <template>
   <div class="w-screen h-screen relative overflow-hidden flex flex-col">
     <div class="absolute top-0 left-0 w-full h-full -z-10 bg-cover bg-center" style="background-image: url('/images/bg.png');">
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30"></div>
     </div>
     <TopBar />
     <div class="flex-1 flex overflow-hidden p-2.5">

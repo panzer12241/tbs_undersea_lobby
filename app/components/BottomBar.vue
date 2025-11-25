@@ -5,21 +5,21 @@
       <div class="absolute inset-0 grid grid-cols-[1fr_auto_1fr] items-end px-32 pb-2">
         
         <!-- Left Menu -->
-        <div class="grid grid-cols-3 w-full h-full items-end pb-2">
+        <div class="flex justify-center items-end gap-10 w-full h-full pb-2">
             <!-- Item 1: Promotion -->
             <div class="flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
-                <img src="/images/bottom-menu/promotion.png" class="w-14 object-contain group-hover:-translate-y-2 transition-transform duration-300" />
-                <span class="text-white text-[12px] font-bold drop-shadow-md whitespace-nowrap">โปรโมชั่น</span>
+                <img src="/images/bottom-menu/promotion.png" class="h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
+                <span class="text-white text-lg font-bold drop-shadow-md whitespace-nowrap">โปรโมชั่น</span>
             </div>
             <!-- Item 2: Deposit -->
             <div class="flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
-                <img src="/images/bottom-menu/deposit.png" class="w-14 object-contain group-hover:-translate-y-2 transition-transform duration-300" />
-                <span class="text-white text-[12px] font-bold drop-shadow-md whitespace-nowrap">ฝาก</span>
+                <img src="/images/bottom-menu/deposit.png" class="h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
+                <span class="text-white text-lg font-bold drop-shadow-md whitespace-nowrap">ฝาก</span>
             </div>
             <!-- Item 3: Withdraw -->
             <div class="flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
-                <img src="/images/bottom-menu/dimon.png" class="w-14 object-contain group-hover:-translate-y-2 transition-transform duration-300" />
-                <span class="text-white text-[12px] font-bold drop-shadow-md whitespace-nowrap">ถอน</span>
+                <img src="/images/bottom-menu/dimon.png" class="h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
+                <span class="text-white text-lg font-bold drop-shadow-md whitespace-nowrap">ถอน</span>
             </div>
         </div>
 
@@ -31,21 +31,21 @@
         </div>
 
         <!-- Right Menu -->
-        <div class="grid grid-cols-3 w-full h-full items-end pb-2">
+        <div class="flex justify-center items-end gap-10 w-full h-full pb-2">
             <!-- Item 4: Favorite -->
             <div class="flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
-                <img src="/images/bottom-menu/favorite.png" class="w-14 object-contain group-hover:-translate-y-2 transition-transform duration-300" />
-                <span class="text-white text-[12px] font-bold drop-shadow-md whitespace-nowrap">เกมโปรด</span>
+                <img src="/images/bottom-menu/favorite.png" class="h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
+                <span class="text-white text-lg font-bold drop-shadow-md whitespace-nowrap">เกมโปรด</span>
             </div>
             <!-- Item 5: Activity -->
             <div class="flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
-                <img src="/images/bottom-menu/event.png" class="w-14 object-contain group-hover:-translate-y-2 transition-transform duration-300" />
-                <span class="text-white text-[12px] font-bold drop-shadow-md whitespace-nowrap">กิจกรรม</span>
+                <img src="/images/bottom-menu/event.png" class="h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
+                <span class="text-white text-lg font-bold drop-shadow-md whitespace-nowrap">กิจกรรม</span>
             </div>
             <!-- Item 6: Contact -->
             <div class="flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
-                <img src="/images/bottom-menu/contact.png" class="w-14 object-contain group-hover:-translate-y-2 transition-transform duration-300" />
-                <span class="text-white text-[12px] font-bold drop-shadow-md whitespace-nowrap">ติดต่อ</span>
+                <img src="/images/bottom-menu/contact.png" class="h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
+                <span class="text-white text-lg font-bold drop-shadow-md whitespace-nowrap">ติดต่อ</span>
             </div>
         </div>
 

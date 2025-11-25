@@ -4,14 +4,16 @@
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30"></div>
     </div>
     <TopBar />
-    <div class="flex-1 flex overflow-hidden p-2.5">
+    <div class="flex-1 flex overflow-hidden px-2.5 pt-2.5 pb-24 relative z-20">
       <SideBar />
       <div class="flex-1 overflow-y-auto px-5">
         <!-- <NuxtPage /> -->
       </div>
       <div class="w-0"></div> <!-- Spacer if needed -->
     </div>
-    <BottomBar />
+    <div class="absolute bottom-0 left-0 w-full z-10">
+      <BottomBar />
+    </div>
   </div>
 </template>
 

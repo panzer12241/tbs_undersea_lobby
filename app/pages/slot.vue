@@ -37,7 +37,7 @@
             />
             
             <!-- Favorite Button -->
-            <button class="absolute bottom-4 right-4 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+            <button class="absolute bottom-4 right-2 w-14 h-14 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
               <img src="/images/lobby/favorite-uncheck.png" alt="Favorite" class="w-full h-full object-contain" />
             </button>
           </div>
@@ -96,9 +96,7 @@ const filteredProviders = computed(() => {
   
   const query = searchQuery.value.toLowerCase()
   return providers.value.filter(provider => 
-    provider.name.toLowerCase().includes(query) ||
-    provider.code.toLowerCase().includes(query) ||
-    provider.category.toLowerCase().includes(query)
+    provider.name.toLowerCase().includes(query)
   )
 })
 

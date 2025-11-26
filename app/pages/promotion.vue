@@ -1,9 +1,8 @@
 <template>
   <div class="h-full flex flex-col gap-6 overflow-y-auto">
     <!-- Header -->
-    <div class="flex items-center justify-center gap-3">
-      <img src="/images/bottom-menu/promotion.png" alt="Promotion" class="w-12 h-12" />
-      <h1 class="text-3xl font-bold text-white drop-shadow-lg">โปรโมชั่น</h1>
+    <div class="flex items-center justify-center">
+      <img src="/images/promotion/x.svg" alt="โปรโมชั่น" class="h-16 w-auto" />
     </div>
 
     <!-- Loading State -->

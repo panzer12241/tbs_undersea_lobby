@@ -7,23 +7,23 @@
         <!-- Left Menu -->
         <div class="flex justify-center items-end gap-10 w-full h-full pb-2">
             <!-- Item 1: Promotion -->
-            <div class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
+            <NuxtLink to="/promotion" class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-16 h-6 bg-[#00FFCE] blur-[10px] rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img src="/images/bottom-menu/promotion.png" class="relative z-10 h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
                 <span class="relative z-10 text-white text-lg font-bold drop-shadow-md whitespace-nowrap">โปรโมชั่น</span>
-            </div>
+            </NuxtLink>
             <!-- Item 2: Deposit -->
-            <div class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
+            <NuxtLink to="/deposit" class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-16 h-6 bg-[#00FFCE] blur-[10px] rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img src="/images/bottom-menu/deposit.png" class="relative z-10 h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
                 <span class="text-white text-lg font-bold drop-shadow-md whitespace-nowrap">ฝาก</span>
-            </div>
+            </NuxtLink>
             <!-- Item 3: Withdraw -->
-            <div class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
+            <NuxtLink to="/withdraw" class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-16 h-6 bg-[#00FFCE] blur-[10px] rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img src="/images/bottom-menu/dimon.png" class="relative z-10 h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
                 <span class="text-white text-lg font-bold drop-shadow-md whitespace-nowrap">ถอน</span>
-            </div>
+            </NuxtLink>
         </div>
 
         <!-- Center Button -->
@@ -36,23 +36,23 @@
         <!-- Right Menu -->
         <div class="flex justify-center items-end gap-10 w-full h-full pb-2">
             <!-- Item 4: Favorite -->
-            <div class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
+            <NuxtLink to="/favorite" class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-16 h-6 bg-[#00FFCE] blur-[10px] rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img src="/images/bottom-menu/favorite.png" class="relative z-10 h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
                 <span class="text-white text-lg font-bold drop-shadow-md whitespace-nowrap">เกมโปรด</span>
-            </div>
+            </NuxtLink>
             <!-- Item 5: Activity -->
-            <div class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
+            <NuxtLink to="/event" class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-16 h-6 bg-[#00FFCE] blur-[10px] rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img src="/images/bottom-menu/event.png" class="relative z-10 h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
                 <span class="text-white text-lg font-bold drop-shadow-md whitespace-nowrap">กิจกรรม</span>
-            </div>
+            </NuxtLink>
             <!-- Item 6: Contact -->
-            <div class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
+            <NuxtLink to="/contact" class="relative flex flex-col items-center justify-end gap-1 cursor-pointer group h-full">
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-16 h-6 bg-[#00FFCE] blur-[10px] rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img src="/images/bottom-menu/contact.png" class="relative z-10 h-14 w-auto object-contain group-hover:-translate-y-2 transition-transform duration-300" />
                 <span class="text-white text-lg font-bold drop-shadow-md whitespace-nowrap">ติดต่อ</span>
-            </div>
+            </NuxtLink>
         </div>
 
       </div>

@@ -1,74 +1,117 @@
 <template>
-  <div class="h-full flex flex-col gap-4 p-8">
-    <h1 class="text-2xl font-bold text-white drop-shadow-lg">กีฬา</h1>
-    <div class="grid grid-cols-3 gap-6">
-      <!-- Sport Cards -->
-      <div v-for="sport in sports" :key="sport.name" 
-           class="relative rounded-2xl overflow-hidden cursor-pointer group bg-gradient-to-b from-[#22c55e]/20 to-[#16a34a]/20 border border-white/20 backdrop-blur-sm hover:scale-105 transition-transform duration-300">
-        <div class="p-6 flex flex-col items-center gap-4">
-          <div class="w-24 h-24 rounded-full bg-gradient-to-b from-[#22c55e]/40 to-[#16a34a]/60 flex items-center justify-center border-2 border-[#22c55e]/50 shadow-[0_0_20px_rgba(34,197,94,0.4)]">
-            <span class="text-5xl">{{ sport.icon }}</span>
+  <div class="h-full flex flex-col gap-4 overflow-y-auto">
+    <!-- Header with Title and Search -->
+    <div class="flex items-center justify-between sticky top-0 bg-transparent z-10 pb-2">
+      <h1 class="text-2xl font-bold text-white drop-shadow-lg">กีฬา</h1>
+      <div class="relative">
+        <input 
+          v-model="searchQuery"
+          type="text" 
+          placeholder="ค้นหาเกม..." 
+          class="w-[200px] px-4 py-2 rounded-full bg-[#e0f7f7] text-[#005c6e] placeholder-[#005c6e]/60 border-2 border-[#00ffff]/50 focus:outline-none focus:border-[#00ffff] text-sm"
+        />
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div v-if="loading" class="flex-1 flex items-center justify-center">
+      <div class="flex flex-col items-center gap-4">
+        <div class="w-12 h-12 border-4 border-[#00ffff]/30 border-t-[#00ffff] rounded-full animate-spin"></div>
+        <span class="text-white/70">กำลังโหลด...</span>
+      </div>
+    </div>
+
+    <!-- Sport Games Grid -->
+    <div v-else class="grid grid-cols-5 gap-4 pb-4">
+      <div v-for="game in filteredGames" :key="game.game_id" 
+           class="relative cursor-pointer group hover:scale-[1.02] transition-transform duration-300">
+        <!-- Card Container -->
+        <div class="relative rounded-[20px] overflow-hidden bg-[#00FFCE]/50 border border-[#707070] shadow-[0_8px_32px_rgba(0,0,0,0.3)] p-1">
+          <!-- Game Image -->
+          <div class="relative aspect-square rounded-[16px] overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_4px_rgba(0,0,0,0.3)]">
+            <img 
+              :src="game.img" 
+              :alt="game.name"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              @error="handleImageError"
+            />
+            
+            <!-- Favorite Button -->
+            <button class="absolute bottom-4 right-2 w-14 h-14 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+              <img src="/images/lobby/favorite-uncheck.png" alt="Favorite" class="w-full h-full object-contain" />
+            </button>
           </div>
-          <span class="text-white font-bold text-xl">{{ sport.name }}</span>
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            <span class="text-green-400 text-sm">{{ sport.live }} แมตช์สด</span>
+
+          <!-- Float Shadow -->
+          <div class="flex justify-center mt-1 mb-1">
+            <div class="w-[70%] h-3 bg-black/30 rounded-[50%] blur-[3px]"></div>
           </div>
-          <div class="flex gap-2 flex-wrap justify-center">
-            <span v-for="league in sport.leagues" :key="league" 
-                  class="bg-white/10 text-white text-xs px-2 py-1 rounded-full">
-              {{ league }}
-            </span>
+          
+          <!-- Game Info - Bottom Section -->
+          <div class="px-4 py-2">
+            <span class="text-white/80 text-lg">{{ game.zone }}</span>
+            <h3 class="text-white font-bold text-xl uppercase tracking-wide">{{ game.name }}</h3>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- Live Matches -->
-    <div class="mt-4">
-      <h2 class="text-xl font-bold text-white mb-4">🔴 แมตช์สดตอนนี้</h2>
-      <div class="grid grid-cols-2 gap-4">
-        <div v-for="match in liveMatches" :key="match.id"
-             class="bg-gradient-to-r from-[#1e3a5f]/80 to-[#2d5a87]/80 rounded-xl p-4 border border-white/20">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="text-2xl">{{ match.homeIcon }}</span>
-              <span class="text-white font-bold">{{ match.home }}</span>
-            </div>
-            <div class="flex flex-col items-center">
-              <span class="text-[#00ffff] font-bold text-xl">{{ match.score }}</span>
-              <span class="text-white/50 text-xs">{{ match.time }}</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="text-white font-bold">{{ match.away }}</span>
-              <span class="text-2xl">{{ match.awayIcon }}</span>
-            </div>
-          </div>
-          <div class="flex justify-center gap-4 mt-3">
-            <button class="bg-gradient-to-r from-[#ffd700] to-[#ffaa00] text-black text-xs font-bold px-4 py-1 rounded-full hover:scale-105 transition-transform">
-              เดิมพัน
-            </button>
-          </div>
-        </div>
+
+    <!-- Empty State -->
+    <div v-if="!loading && filteredGames.length === 0" class="flex-1 flex items-center justify-center">
+      <div class="flex flex-col items-center gap-4">
+        <span class="text-4xl">🔍</span>
+        <span class="text-white/70">ไม่พบเกมที่ค้นหา</span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const sports = [
-  { name: 'ฟุตบอล', icon: '⚽', live: 45, leagues: ['พรีเมียร์ลีก', 'ลาลีกา', 'บุนเดสลีกา'] },
-  { name: 'บาสเกตบอล', icon: '🏀', live: 12, leagues: ['NBA', 'EuroLeague'] },
-  { name: 'เทนนิส', icon: '🎾', live: 8, leagues: ['ATP', 'WTA'] },
-  { name: 'มวย', icon: '🥊', live: 3, leagues: ['มวยไทย', 'มวยสากล'] },
-  { name: 'อีสปอร์ต', icon: '🎮', live: 15, leagues: ['LOL', 'DOTA2', 'CS2'] },
-  { name: 'แบดมินตัน', icon: '🏸', live: 5, leagues: ['BWF', 'Super Series'] },
-]
+interface SportGame {
+  game_id: number
+  provider_id: number
+  img: string
+  code: string
+  name: string
+  provider: string
+  zone: string
+  click: number
+  created_at: string
+}
 
-const liveMatches = [
-  { id: 1, home: 'แมนยู', homeIcon: '🔴', away: 'ลิเวอร์พูล', awayIcon: '🔴', score: '2 - 1', time: '67\'' },
-  { id: 2, home: 'บาร์เซโลนา', homeIcon: '🔵', away: 'เรอัล มาดริด', awayIcon: '⚪', score: '1 - 1', time: '45+2\'' },
-  { id: 3, home: 'Lakers', homeIcon: '💜', away: 'Warriors', awayIcon: '💛', score: '98 - 102', time: 'Q4 8:23' },
-  { id: 4, home: 'T1', homeIcon: '🎮', away: 'Gen.G', awayIcon: '🎮', score: '1 - 0', time: 'Game 2' },
-]
+const config = useRuntimeConfig()
+const baseUrl = config.public.apiBaseUrl
+
+const games = ref<SportGame[]>([])
+const loading = ref(true)
+const searchQuery = ref('')
+
+// Fetch games on mount
+const { data, pending, error } = await useFetch<SportGame[]>(`${baseUrl}/api/v1/lobby/sport`)
+
+watchEffect(() => {
+  loading.value = pending.value
+  if (data.value) {
+    games.value = data.value
+  }
+  if (error.value) {
+    console.error('Error fetching sport games:', error.value)
+  }
+})
+
+// Filter games based on search query
+const filteredGames = computed(() => {
+  if (!searchQuery.value) return games.value
+  
+  const query = searchQuery.value.toLowerCase()
+  return games.value.filter(game => 
+    game.name.toLowerCase().includes(query)
+  )
+})
+
+// Handle image error
+const handleImageError = (event: Event) => {
+  const img = event.target as HTMLImageElement
+  img.src = '/images/lobby/slot-hit.png' // Fallback image
+}
 </script>

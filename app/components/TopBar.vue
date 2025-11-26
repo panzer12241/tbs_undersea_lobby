@@ -107,7 +107,7 @@
 .animate-marquee {
   display: inline-block;
   padding-left: 100%;
-  animation: marquee 20s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 @keyframes marquee {

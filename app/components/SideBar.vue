@@ -27,7 +27,7 @@
              <img src="/images/sidebar/slot.png" alt="Slot" class="h-[60px] w-auto object-contain drop-shadow-lg" />
         </div>
         <div class="bg-gradient-to-b from-[#ccffff] to-[#99ffff] text-[#005c6e] text-lg font-bold px-3 py-[2px] rounded-full -mt-3 relative z-20 shadow-[0_2px_4px_rgba(0,0,0,0.2)] border border-white/60 whitespace-nowrap min-w-[65px] text-center">
-          ค่ายเกม
+          สล็อต
         </div>
       </div>
 

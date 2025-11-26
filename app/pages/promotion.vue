@@ -1,35 +1,76 @@
 <template>
-  <div class="h-full flex flex-col gap-4 p-8">
-    <h1 class="text-2xl font-bold text-white drop-shadow-lg">โปรโมชั่น</h1>
-    <div class="grid grid-cols-2 gap-6">
-      <!-- Promotion Cards -->
-      <div v-for="promo in promotions" :key="promo.title" 
-           class="relative rounded-2xl overflow-hidden cursor-pointer group bg-gradient-to-r from-[#ff6b6b]/30 to-[#ffd93d]/30 border border-white/20 backdrop-blur-sm hover:scale-[1.02] transition-transform duration-300">
-        <div class="p-6 flex gap-4">
-          <div class="w-24 h-24 rounded-xl bg-gradient-to-b from-[#ffd700]/50 to-[#ff6b6b]/50 flex items-center justify-center border border-[#ffd700]/50 shadow-[0_0_20px_rgba(255,215,0,0.3)]">
-            <span class="text-5xl">{{ promo.icon }}</span>
+  <div class="h-full flex flex-col gap-6 overflow-y-auto">
+    <!-- Header -->
+    <div class="flex items-center justify-center gap-3">
+      <img src="/images/bottom-menu/promotion.png" alt="Promotion" class="w-12 h-12" />
+      <h1 class="text-3xl font-bold text-white drop-shadow-lg">โปรโมชั่น</h1>
+    </div>
+
+    <!-- Loading State -->
+    <div v-if="loading" class="flex-1 flex items-center justify-center">
+      <div class="flex flex-col items-center gap-4">
+        <div class="w-12 h-12 border-4 border-[#00ffff]/30 border-t-[#00ffff] rounded-full animate-spin"></div>
+        <span class="text-white/70">กำลังโหลด...</span>
+      </div>
+    </div>
+
+    <!-- Promotions Grid -->
+    <div v-else class="grid grid-cols-4 gap-6 pb-4">
+      <div v-for="promo in promotions" :key="promo.id" 
+           class="relative cursor-pointer group hover:scale-[1.02] transition-transform duration-300">
+        <!-- Card Container -->
+        <div class="relative rounded-[20px] overflow-hidden bg-[#00FFCE]/50 border border-[#707070] shadow-[0_8px_32px_rgba(0,0,0,0.3)] p-2">
+          <!-- Promotion Image -->
+          <div class="relative aspect-square rounded-[16px] overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+            <img 
+              :src="promo.image" 
+              :alt="promo.name"
+              class="w-full h-full object-contain bg-gradient-to-b from-[#1a3a5c] to-[#0d2744] transition-transform duration-300 group-hover:scale-105"
+              @error="handleImageError"
+            />
           </div>
-          <div class="flex-1 flex flex-col gap-2">
-            <span class="text-white font-bold text-xl">{{ promo.title }}</span>
-            <span class="text-white/70 text-sm">{{ promo.description }}</span>
-            <div class="flex gap-2 mt-auto">
-              <span class="bg-[#00ffff] text-black text-xs font-bold px-3 py-1 rounded-full">{{ promo.bonus }}</span>
-              <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full">{{ promo.turnover }}</span>
-            </div>
+
+          <!-- Float Shadow -->
+          <div class="flex justify-center mt-1 mb-1">
+            <div class="w-[70%] h-3 bg-black/30 rounded-[50%] blur-[3px]"></div>
+          </div>
+          
+          <!-- Promotion Info -->
+          <div class="px-3 py-2 text-center">
+            <h3 class="text-white font-bold text-base line-clamp-1">{{ promo.name }}</h3>
+            
+            <!-- Detail Button -->
+            <button class="mt-3 w-full flex justify-center hover:scale-105 transition-transform">
+              <img src="/images/promotion/select-btn.png" alt="รายละเอียด" class="w-auto h-30" />
+            </button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div v-if="!loading && promotions.length === 0" class="flex-1 flex items-center justify-center">
+      <div class="flex flex-col items-center gap-4">
+        <span class="text-4xl">🎁</span>
+        <span class="text-white/70">ไม่มีโปรโมชั่นในขณะนี้</span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const promotions = [
-  { title: 'โบนัสต้อนรับ 100%', icon: '🎁', description: 'สมัครใหม่วันนี้ รับโบนัส 100% สูงสุด 5,000 บาท', bonus: '+100%', turnover: 'x5 เทิร์น' },
-  { title: 'ฝากครั้งแรก 50%', icon: '💰', description: 'ฝากเงินครั้งแรกของวัน รับโบนัส 50%', bonus: '+50%', turnover: 'x3 เทิร์น' },
-  { title: 'คืนยอดเสีย 10%', icon: '🔄', description: 'รับเงินคืนยอดเสียทุกวันจันทร์ สูงสุด 10,000 บาท', bonus: '+10%', turnover: 'x1 เทิร์น' },
-  { title: 'แนะนำเพื่อน', icon: '👥', description: 'ชวนเพื่อนสมัคร รับค่าคอมมิชชั่นตลอดชีพ', bonus: '+5%', turnover: 'ไม่มีเทิร์น' },
-  { title: 'โบนัสวันเกิด', icon: '🎂', description: 'รับโบนัสพิเศษในเดือนเกิดของคุณ', bonus: '+200฿', turnover: 'x2 เทิร์น' },
-  { title: 'Cashback รายสัปดาห์', icon: '💎', description: 'รับเงินคืนทุกสัปดาห์ ไม่จำกัดจำนวน', bonus: '+5%', turnover: 'x1 เทิร์น' },
-]
+import type { Promotion } from '~/composables/api/useAppInfo'
+
+const { register } = useAppInfo()
+
+const loading = ref(false)
+
+// Get promotions from app info
+const promotions = computed(() => register.value?.promotions || [])
+
+// Handle image error
+const handleImageError = (event: Event) => {
+  const img = event.target as HTMLImageElement
+  img.src = '/images/lobby/slot-hit.png' // Fallback image
+}
 </script>

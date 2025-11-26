@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full relative z-10">
+  <div class="w-full relative z-50">
     <div class="relative w-full">
       <img src="/images/bottom-menu/bt-bg.png" alt="Bottom Bar Background" class="w-full h-auto block" />
       <div class="absolute inset-0 grid grid-cols-[1fr_auto_1fr] items-end px-32 pb-2">

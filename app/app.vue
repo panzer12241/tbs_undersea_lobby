@@ -11,7 +11,7 @@
       </div>
       <div class="w-0"></div> <!-- Spacer if needed -->
     </div>
-    <div class="absolute bottom-0 left-0 w-full z-10">
+    <div class="absolute bottom-0 left-0 w-full z-30">
       <BottomBar />
     </div>
   </div>

@@ -43,7 +43,7 @@
       <!-- Center Logo -->
       <div class="flex items-center justify-center h-full pb-4">
         <div class="hover:scale-105 transition-transform duration-300">
-          <img src="/images/logo.png" alt="JOKER79" class="h-[55px] object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.5)]" />
+          <img :src="prefix?.image_logo || '/images/logo.png'" :alt="prefix?.web_name || 'Logo'" class="h-[55px] object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.5)]" />
         </div>
       </div>
 
@@ -102,6 +102,10 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const { prefix } = useAppInfo()
+</script>
 
 <style scoped>
 .animate-marquee {

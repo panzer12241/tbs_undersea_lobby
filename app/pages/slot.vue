@@ -50,7 +50,7 @@
       
           <!-- Provider Info - Bottom Section -->
           <div class="px-4 py-2">
-            <span class="text-white/80 text-sm">{{ provider.category }}</span>
+            <span class="text-white/80 text-lg">{{ provider.category }}</span>
             <h3 class="text-white font-bold text-xl uppercase tracking-wide">{{ provider.name }}</h3>
           </div>
         </div>

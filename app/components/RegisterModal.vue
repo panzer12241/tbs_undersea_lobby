@@ -125,12 +125,14 @@
               <input 
                 v-model="displayAccountNumber"
                 type="text"
-                placeholder="XXX-X-XXXXX-X"
-                maxlength="14"
+                placeholder="กรอกเลขบัญชี 8-20 หลัก"
+                maxlength="25"
                 @input="handleAccountNumberInput"
                 @keypress="onlyNumber"
                 class="w-full h-[50px] px-4 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[#00FFCE] focus:ring-2 focus:ring-[#00FFCE]/30"
+                :class="{ 'border-red-500': accountNumberError }"
               />
+              <p v-if="accountNumberError" class="text-red-400 text-xs mt-1">{{ accountNumberError }}</p>
             </div>
 
             <!-- Reference Select -->
@@ -378,6 +380,7 @@ const reference = ref('')
 
 // State
 const phoneError = ref('')
+const accountNumberError = ref('')
 const errorMessage = ref('')
 const isLoading = ref(false)
 const showBankModal = ref(false)
@@ -570,29 +573,39 @@ const formatPhone = (value: string): string => {
   }
 }
 
-// Format account number with mask: XXX-X-XXXXX-X
+// Format account number with mask: XXX-XXXX-XXXX-XXXX-XXXXX (groups of 3-4-4-4-5)
 const formatAccountNumber = (value: string): string => {
   const digits = value.replace(/\D/g, '')
-  if (digits.length <= 3) {
-    return digits
-  } else if (digits.length <= 4) {
-    return `${digits.slice(0, 3)}-${digits.slice(3)}`
-  } else if (digits.length <= 9) {
-    return `${digits.slice(0, 3)}-${digits.slice(3, 4)}-${digits.slice(4)}`
-  } else {
-    return `${digits.slice(0, 3)}-${digits.slice(3, 4)}-${digits.slice(4, 9)}-${digits.slice(9, 10)}`
+  const parts: string[] = []
+  let remaining = digits
+  
+  // Split into groups: 3-4-4-4-5 pattern
+  const groupSizes = [3, 4, 4, 4, 5]
+  for (const size of groupSizes) {
+    if (remaining.length === 0) break
+    parts.push(remaining.slice(0, size))
+    remaining = remaining.slice(size)
   }
+  
+  return parts.join('-')
 }
 
-// Handle account number input with mask
+// Handle account number input (8-20 digits)
 const handleAccountNumberInput = (event: Event) => {
   const input = event.target as HTMLInputElement
   const digits = input.value.replace(/\D/g, '')
   
-  // Limit to 10 digits
-  const limitedDigits = digits.slice(0, 10)
+  // Limit to 20 digits
+  const limitedDigits = digits.slice(0, 20)
   accountNumber.value = limitedDigits
   displayAccountNumber.value = formatAccountNumber(limitedDigits)
+  
+  // Validate length
+  if (limitedDigits.length > 0 && limitedDigits.length < 8) {
+    accountNumberError.value = 'เลขบัญชีต้องมีอย่างน้อย 8 หลัก'
+  } else {
+    accountNumberError.value = ''
+  }
 }
 
 // Handle phone input with validation
@@ -649,6 +662,10 @@ const handleRegister = async () => {
   }
   if (!accountNumber.value) {
     errorMessage.value = 'กรุณากรอกเลขบัญชีธนาคาร'
+    return
+  }
+  if (accountNumber.value.length < 8 || accountNumber.value.length > 20) {
+    accountNumberError.value = 'เลขบัญชีต้องมี 8-20 หลัก'
     return
   }
   if (!reference.value) {

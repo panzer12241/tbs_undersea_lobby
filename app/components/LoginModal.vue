@@ -22,7 +22,7 @@
           <form @submit.prevent="handleLogin" class="flex flex-col gap-6">
             <!-- Phone Input -->
             <div class="relative">
-              <label class="absolute -top-3 left-4 bg-[#048A90] px-2 text-white/80 text-sm rounded">
+              <label class="absolute -top-3 left-4 bg-[#FFFFFF] px-2 text-[#008677] text-sm rounded">
                 เบอร์โทรศัพท์มือถือ
               </label>
               <input 
@@ -40,7 +40,7 @@
             
             <!-- Password Input -->
             <div class="relative">
-              <label class="absolute -top-3 left-4 bg-[#048A90] px-2 text-white/80 text-sm rounded">
+              <label class="absolute -top-3 left-4 bg-[#FFFFFF] px-2 text-[#008677] text-sm rounded">
                 รหัสผ่านหรือเลขบัญชีธนาคาร
               </label>
               <input 

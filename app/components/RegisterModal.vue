@@ -22,7 +22,7 @@
           <form @submit.prevent="handleRegister" class="flex flex-col gap-5">
             <!-- Phone Input -->
             <div class="relative">
-              <label class="absolute -top-3 left-4 bg-[#048A90] px-2 text-white/80 text-sm rounded">
+              <label class="absolute -top-3 left-4 bg-[#FFFFFF] px-2 text-[#008677] text-sm rounded">
                 เบอร์โทรศัพท์มือถือ
               </label>
               <input 
@@ -40,7 +40,7 @@
 
             <!-- Password Input -->
             <div class="relative">
-              <label class="absolute -top-3 left-4 bg-[#048A90] px-2 text-white/80 text-sm rounded">
+              <label class="absolute -top-3 left-4 bg-[#FFFFFF] px-2 text-[#008677] text-sm rounded">
                 รหัสผ่าน
               </label>
               <input 
@@ -53,7 +53,7 @@
 
             <!-- Name Input -->
             <div class="relative">
-              <label class="absolute -top-3 left-4 bg-[#048A90] px-2 text-white/80 text-sm rounded">
+              <label class="absolute -top-3 left-4 bg-[#FFFFFF] px-2 text-[#008677] text-sm rounded">
                 ชื่อ-นามสกุล
               </label>
               <input 
@@ -66,7 +66,7 @@
 
             <!-- Bank Select -->
             <div class="relative">
-              <label class="absolute -top-3 left-4 bg-[#048A90] px-2 text-white/80 text-sm rounded z-10">
+              <label class="absolute -top-3 left-4 bg-[#FFFFFF] px-2 text-[#008677] text-sm rounded z-10">
                 ธนาคาร
               </label>
               <button 
@@ -119,7 +119,7 @@
 
             <!-- Account Number Input -->
             <div class="relative">
-              <label class="absolute -top-3 left-4 bg-[#048A90] px-2 text-white/80 text-sm rounded">
+              <label class="absolute -top-3 left-4 bg-[#FFFFFF] px-2 text-[#008677] text-sm rounded">
                 เลขบัญชีธนาคาร
               </label>
               <input 
@@ -135,7 +135,7 @@
 
             <!-- Reference Select -->
             <div class="relative">
-              <label class="absolute -top-3 left-4 bg-[#048A90] px-2 text-white/80 text-sm rounded z-10">
+              <label class="absolute -top-3 left-4 bg-[#FFFFFF] px-2 text-[#008677] text-sm rounded z-10">
                 รู้จักเราจากช่องทางไหน
               </label>
               <select 
@@ -159,7 +159,7 @@
 
             <!-- Promotion Select (Optional) -->
             <div class="relative">
-              <label class="absolute -top-3 left-4 bg-[#048A90] px-2 text-white/80 text-sm rounded z-10">
+              <label class="absolute -top-3 left-4 bg-[#FFFFFF] px-2 text-[#008677] text-sm rounded z-10">
                 โปรโมชั่น (ถ้ามี)
               </label>
               <button 
@@ -344,7 +344,7 @@
               :disabled="isLoading"
               class="w-full flex justify-center hover:scale-105 transition-transform mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <img src="/images/login/login-btn.png" alt="สมัครสมาชิก" class="h-14 w-auto" />
+              <img src="/images/register/register-btn.png" alt="สมัครสมาชิก" class="h-14 w-auto" />
             </button>
           </form>
         

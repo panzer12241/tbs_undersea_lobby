@@ -60,7 +60,8 @@
             <!-- Login Button -->
             <button 
               type="submit"
-              class="w-full flex justify-center hover:scale-105 transition-transform mt-2"
+              :disabled="isLoading"
+              class="w-full flex justify-center hover:scale-105 transition-transform mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <img src="/images/login/login-btn.png" alt="เข้าสู่ระบบ" class="h-14 w-auto" />
             </button>
@@ -81,11 +82,13 @@
 
 <script setup lang="ts">
 const { showLoginModal, closeLoginModal, openRegisterModal } = useAuthModal()
+const toast = useToast()
 
 const phone = ref('')
 const displayPhone = ref('')
 const password = ref('')
 const phoneError = ref('')
+const isLoading = ref(false)
 
 // Valid phone prefixes
 const validPrefixes = ['02', '04', '06', '08', '09']
@@ -138,7 +141,7 @@ const handlePhoneInput = (event: Event) => {
   }
 }
 
-const handleLogin = () => {
+const handleLogin = async () => {
   // Validate before submit
   if (phone.value.length !== 10) {
     phoneError.value = 'กรุณากรอกเบอร์โทร 10 หลัก'
@@ -150,11 +153,62 @@ const handleLogin = () => {
     phoneError.value = 'เบอร์โทรต้องขึ้นต้นด้วย 02, 04, 06, 08 หรือ 09'
     return
   }
-  
-  // TODO: Implement login logic
-  console.log('Login:', { phone: phone.value, password: password.value })
-  
-  // Close modal on success
-  closeLoginModal()
+
+  if (!password.value) {
+    toast.error('กรุณากรอกรหัสผ่าน')
+    return
+  }
+
+  isLoading.value = true
+
+  try {
+    const formData = new FormData()
+    formData.append('phone', phone.value)
+    formData.append('password', password.value)
+
+    const response = await fetch('https://api.maxnano.app/api/v1/auth/login', {
+      method: 'POST',
+      headers: {
+        'Origin': window.location.origin
+      },
+      body: formData
+    })
+
+    const result = await response.json()
+
+    if (response.ok && result.token) {
+      // Save token to localStorage
+      localStorage.setItem('token', result.token)
+      
+      // Save user data to localStorage
+      if (result.data) {
+        localStorage.setItem('user', JSON.stringify(result.data))
+        localStorage.setItem('user_id', String(result.data.id))
+        localStorage.setItem('user_name', result.data.name)
+        localStorage.setItem('user_phone', result.data.phone)
+        localStorage.setItem('user_game_username', result.data.user_game_username)
+        if (result.data.image_logo) {
+          localStorage.setItem('image_logo', result.data.image_logo)
+        }
+      }
+      
+      // Show success toast
+      toast.success('เข้าสู่ระบบสำเร็จ')
+      
+      // Close modal
+      closeLoginModal()
+      
+      // Reload page to update state
+      window.location.reload()
+    } else {
+      // Show error toast for status >= 400
+      toast.error(result.message || 'เบอร์โทรหรือรหัสผ่านไม่ถูกต้อง')
+    }
+  } catch (error) {
+    console.error('Login error:', error)
+    toast.error('เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาลองใหม่อีกครั้ง')
+  } finally {
+    isLoading.value = false
+  }
 }
 </script>

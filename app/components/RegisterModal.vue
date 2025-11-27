@@ -367,6 +367,7 @@
 const { showRegisterModal, closeRegisterModal, openLoginModal } = useAuthModal()
 const { register: appRegister } = useAppInfo()
 const toast = useToast()
+const { setAuth } = useAuth()
 
 // Form data
 const phone = ref('')
@@ -703,29 +704,14 @@ const handleRegister = async () => {
     const result = await response.json()
 
     if (response.ok && result.token) {
-      // Save token to localStorage
-      localStorage.setItem('token', result.token)
-      
-      // Save user data to localStorage
-      if (result.data) {
-        localStorage.setItem('user', JSON.stringify(result.data))
-        localStorage.setItem('user_id', String(result.data.id))
-        localStorage.setItem('user_name', result.data.name)
-        localStorage.setItem('user_phone', result.data.phone)
-        localStorage.setItem('user_game_username', result.data.user_game_username)
-        if (result.data.image_logo) {
-          localStorage.setItem('image_logo', result.data.image_logo)
-        }
-      }
+      // Save auth data using composable
+      setAuth(result.token, result.data)
       
       // Show success toast
       toast.success('สมัครสมาชิกสำเร็จ')
       
       // Close modal
       closeRegisterModal()
-      
-      // Reload page to update state
-      window.location.reload()
     } else {
       // Show error toast for status >= 400
       toast.error(result.message || 'เกิดข้อผิดพลาดในการสมัครสมาชิก')

@@ -58,11 +58,11 @@
             <img src="/images/profile.png" alt="Profile" class="w-11 h-11 rounded-full border border-[#00ffff] shadow-[0_0_5px_#00ffff]" />
           </div>
           <div class="relative z-10 flex flex-col items-start leading-none justify-center">
-            <span class="text-white font-bold text-base drop-shadow-md">วรชาติ อุดมเดช</span>
-            <span class="text-white/60 text-[10px] mt-[1px]">ID: JK0998998888</span>
+            <span class="text-white font-bold text-base drop-shadow-md">{{ userName }}</span>
+            <span class="text-white/60 text-[10px] mt-[1px]">ID: {{ userGameUsername }}</span>
           </div>
           <!-- Power Button -->
-          <button class="relative z-10 hover:scale-105 transition-transform ml-auto -mr-2">
+          <button @click="handleLogout" class="relative z-10 hover:scale-105 transition-transform ml-auto -mr-2">
             <img src="/images/logout-bt.png" alt="Logout" class="w-[52px] h-[52px] drop-shadow-md" />
           </button>
         </div>
@@ -118,9 +118,32 @@
 <script setup lang="ts">
 const { prefix } = useAppInfo()
 const { openLoginModal, openRegisterModal } = useAuthModal()
+const { isLoggedIn, userName, userGameUsername, logout, initAuth, token } = useAuth()
+const toast = useToast()
 
-// สถานะการเข้าสู่ระบบ (ตอนนี้ยังไม่เข้าสู่ระบบ)
-const isLoggedIn = ref(false)
+// Initialize auth on client side
+onMounted(() => {
+  initAuth()
+})
+
+// Handle logout
+const handleLogout = async () => {
+  try {
+    // Call logout API
+    await fetch('https://api.maxnano.app/api/v1/auth/logout', {
+      method: 'GET',
+      headers: {
+        'token': token.value || ''
+      }
+    })
+  } catch (error) {
+    console.error('Logout API error:', error)
+  }
+  
+  // Clear local auth data
+  logout()
+  toast.success('ออกจากระบบสำเร็จ')
+}
 </script>
 
 <style scoped>

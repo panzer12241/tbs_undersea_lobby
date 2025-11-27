@@ -10,3 +10,7 @@ export type {
   AppZone, 
   AppRegister 
 } from './api/useAppInfo'
+
+// Re-export useAuth
+export { useAuth } from './useAuth'
+export type { User } from './useAuth'

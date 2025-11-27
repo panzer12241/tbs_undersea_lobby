@@ -62,7 +62,7 @@
         <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" @click="closeModal"></div>
         
         <!-- Modal Content -->
-        <div class="relative z-10 w-full max-w-2xl mx-4 bg-[#048A90] rounded-[20px] shadow-[0_0_30px_rgba(0,255,255,0.3)] overflow-hidden max-h-[90vh] overflow-y-auto">
+        <div class="relative z-10 w-full max-w-2xl mx-4 bg-[#048A90]/50 backdrop-blur-sm rounded-[20px] shadow-[0_0_30px_rgba(0,255,255,0.3)] overflow-hidden max-h-[90vh] overflow-y-auto">
           <!-- Close Button -->
           <button @click="closeModal" class="absolute top-3 right-3 w-10 h-10 flex items-center justify-center rounded-full bg-[#ff6b6b] hover:bg-[#ff5252] transition-colors z-20 shadow-lg">
             <span class="text-white text-2xl font-bold">&times;</span>
@@ -81,7 +81,7 @@
             <div class="flex gap-6">
               <!-- Promotion Image -->
               <div class="w-1/3 flex-shrink-0">
-                <div class="relative aspect-square rounded-[16px] overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+                <div class="relative aspect-square rounded-[16px] overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.3)]">
                   <img 
                     :src="selectedPromo?.image" 
                     :alt="selectedPromo?.name"

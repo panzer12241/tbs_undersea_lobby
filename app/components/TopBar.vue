@@ -49,8 +49,8 @@
 
       <!-- Right Section: Profile & Buttons -->
       <div class="grid grid-cols-[2fr_1fr] gap-4 h-full pb-4 w-full items-center">
-        <!-- Group 1: Profile & Power -->
-        <div class="relative flex items-center px-1 py-1 h-[46px] w-full">
+        <!-- Group 1: Profile & Power (when logged in) -->
+        <div v-if="isLoggedIn" class="relative flex items-center px-1 py-1 h-[46px] w-full">
            <div class="absolute inset-0 w-full h-full rounded-full bg-[#01bcb6]/20 border border-white/30 shadow-[0_0_6px_#ffffff] mix-blend-overlay">
             <div class="absolute inset-0 rounded-full shadow-[inset_0_4px_8px_rgba(255,255,255,0.3)]"></div>
           </div>
@@ -65,6 +65,18 @@
           <button class="relative z-10 hover:scale-105 transition-transform ml-auto -mr-2">
             <img src="/images/logout-bt.png" alt="Logout" class="w-[52px] h-[52px] drop-shadow-md" />
           </button>
+        </div>
+
+        <!-- Group 1: Login & Register Buttons (when not logged in) -->
+        <div v-else class="flex items-center gap-3 w-full">
+          <!-- Login Button -->
+          <NuxtLink to="/login" class="relative flex-1 h-[42px] rounded-full bg-gradient-to-r from-[#00d4aa] to-[#00b894] border border-white/40 shadow-[0_0_10px_rgba(0,255,206,0.4)] hover:scale-105 transition-transform flex items-center justify-center">
+            <span class="text-white font-bold text-sm drop-shadow-md">เข้าสู่ระบบ</span>
+          </NuxtLink>
+          <!-- Register Button -->
+          <NuxtLink to="/register" class="relative flex-1 h-[42px] rounded-full bg-gradient-to-r from-[#ffd700] to-[#ffb300] border border-white/40 shadow-[0_0_10px_rgba(255,215,0,0.4)] hover:scale-105 transition-transform flex items-center justify-center">
+            <span class="text-white font-bold text-sm drop-shadow-md">สมัครสมาชิก</span>
+          </NuxtLink>
         </div>
 
         <!-- Group 2: Search & Settings -->
@@ -105,6 +117,9 @@
 
 <script setup lang="ts">
 const { prefix } = useAppInfo()
+
+// สถานะการเข้าสู่ระบบ (ตอนนี้ยังไม่เข้าสู่ระบบ)
+const isLoggedIn = ref(false)
 </script>
 
 <style scoped>

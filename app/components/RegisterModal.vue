@@ -705,7 +705,18 @@ const handleRegister = async () => {
     if (response.ok && result.token) {
       // Save token to localStorage
       localStorage.setItem('token', result.token)
-      localStorage.setItem('user', JSON.stringify(result.data))
+      
+      // Save user data to localStorage
+      if (result.data) {
+        localStorage.setItem('user', JSON.stringify(result.data))
+        localStorage.setItem('user_id', String(result.data.id))
+        localStorage.setItem('user_name', result.data.name)
+        localStorage.setItem('user_phone', result.data.phone)
+        localStorage.setItem('user_game_username', result.data.user_game_username)
+        if (result.data.image_logo) {
+          localStorage.setItem('image_logo', result.data.image_logo)
+        }
+      }
       
       // Show success toast
       toast.success('สมัครสมาชิกสำเร็จ')

@@ -70,13 +70,13 @@
         <!-- Group 1: Login & Register Buttons (when not logged in) -->
         <div v-else class="flex items-center gap-3 w-full">
           <!-- Login Button -->
-          <NuxtLink to="/login" class="relative flex-1 h-[42px] rounded-full bg-gradient-to-r from-[#00d4aa] to-[#00b894] border border-white/40 shadow-[0_0_10px_rgba(0,255,206,0.4)] hover:scale-105 transition-transform flex items-center justify-center">
+          <button @click="openLoginModal" class="relative flex-1 h-[42px] rounded-full bg-gradient-to-r from-[#00d4aa] to-[#00b894] border border-white/40 shadow-[0_0_10px_rgba(0,255,206,0.4)] hover:scale-105 transition-transform flex items-center justify-center">
             <span class="text-white font-bold text-sm drop-shadow-md">เข้าสู่ระบบ</span>
-          </NuxtLink>
+          </button>
           <!-- Register Button -->
-          <NuxtLink to="/register" class="relative flex-1 h-[42px] rounded-full bg-gradient-to-r from-[#ffd700] to-[#ffb300] border border-white/40 shadow-[0_0_10px_rgba(255,215,0,0.4)] hover:scale-105 transition-transform flex items-center justify-center">
+          <button @click="openRegisterModal" class="relative flex-1 h-[42px] rounded-full bg-gradient-to-r from-[#ffd700] to-[#ffb300] border border-white/40 shadow-[0_0_10px_rgba(255,215,0,0.4)] hover:scale-105 transition-transform flex items-center justify-center">
             <span class="text-white font-bold text-sm drop-shadow-md">สมัครสมาชิก</span>
-          </NuxtLink>
+          </button>
         </div>
 
         <!-- Group 2: Search & Settings -->
@@ -117,6 +117,7 @@
 
 <script setup lang="ts">
 const { prefix } = useAppInfo()
+const { openLoginModal, openRegisterModal } = useAuthModal()
 
 // สถานะการเข้าสู่ระบบ (ตอนนี้ยังไม่เข้าสู่ระบบ)
 const isLoggedIn = ref(false)

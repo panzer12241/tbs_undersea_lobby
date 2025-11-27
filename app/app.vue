@@ -14,6 +14,10 @@
     <div class="absolute bottom-0 left-0 w-full z-30">
       <BottomBar />
     </div>
+    
+    <!-- Auth Modals -->
+    <LoginModal />
+    <RegisterModal />
   </div>
 </template>
 

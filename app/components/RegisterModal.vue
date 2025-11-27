@@ -366,6 +366,7 @@
 <script setup lang="ts">
 const { showRegisterModal, closeRegisterModal, openLoginModal } = useAuthModal()
 const { register: appRegister } = useAppInfo()
+const toast = useToast()
 
 // Form data
 const phone = ref('')
@@ -686,7 +687,8 @@ const handleRegister = async () => {
     if (promotionId.value) {
       formData.append('promotion_id', promotionId.value)
       if (selectedZone.value) {
-        formData.append('zone', selectedZone.value)
+        // Send zone in Thai
+        formData.append('zone', zoneLabels[selectedZone.value] || selectedZone.value)
       }
     }
 
@@ -705,17 +707,21 @@ const handleRegister = async () => {
       localStorage.setItem('token', result.token)
       localStorage.setItem('user', JSON.stringify(result.data))
       
+      // Show success toast
+      toast.success('สมัครสมาชิกสำเร็จ')
+      
       // Close modal
       closeRegisterModal()
       
       // Reload page to update state
       window.location.reload()
     } else {
-      errorMessage.value = result.message || 'เกิดข้อผิดพลาดในการสมัครสมาชิก'
+      // Show error toast for status >= 400
+      toast.error(result.message || 'เกิดข้อผิดพลาดในการสมัครสมาชิก')
     }
   } catch (error) {
     console.error('Register error:', error)
-    errorMessage.value = 'เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาลองใหม่อีกครั้ง'
+    toast.error('เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาลองใหม่อีกครั้ง')
   } finally {
     isLoading.value = false
   }

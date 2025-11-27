@@ -18,6 +18,9 @@
     <!-- Auth Modals -->
     <LoginModal />
     <RegisterModal />
+    
+    <!-- Toast Notifications -->
+    <ToastContainer />
   </div>
 </template>
 
